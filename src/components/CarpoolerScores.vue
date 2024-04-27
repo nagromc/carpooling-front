@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Score } from '@/types'
+import { type Score } from '@/types'
 
 defineProps({
   scores: {
