@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type {Carpooler} from "@/types";
+import type { Carpooler } from '@/types'
 
 defineProps({
   carpoolers: {
@@ -17,6 +17,4 @@ defineProps({
   </ul>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

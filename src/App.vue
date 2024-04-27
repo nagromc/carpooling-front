@@ -1,19 +1,19 @@
 <script setup lang="ts">
-import {ref} from "vue";
-import {Carpooler} from "@/types";
-import CarpoolerList from "@/components/CarpoolerList.vue";
-import CarpoolerScores from "@/components/CarpoolerScores.vue";
+import { ref } from 'vue'
+import { Carpooler } from '@/types'
+import CarpoolerList from '@/components/CarpoolerList.vue'
+import CarpoolerScores from '@/components/CarpoolerScores.vue'
 
-let alice = new Carpooler('alice', 'Alice');
-let bob = new Carpooler('bob', 'Bob');
-let charlie = new Carpooler('charlie', 'Charlie');
+let alice = new Carpooler('alice', 'Alice')
+let bob = new Carpooler('bob', 'Bob')
+let charlie = new Carpooler('charlie', 'Charlie')
 
-let carpoolers = ref([alice, bob, charlie,]);
+let carpoolers = ref([alice, bob, charlie])
 
 let scores = ref([
-  {carpooler: alice, score: 0.3},
-  {carpooler: bob, score: 0.5},
-  {carpooler: charlie, score: -1},
+  { carpooler: alice, score: 0.3 },
+  { carpooler: bob, score: 0.5 },
+  { carpooler: charlie, score: -1 }
 ])
 </script>
 
@@ -31,6 +31,4 @@ let scores = ref([
   <carpooler-scores :scores />
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

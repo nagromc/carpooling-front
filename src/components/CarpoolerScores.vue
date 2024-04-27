@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {Score} from "@/types";
+import { Score } from '@/types'
 
 defineProps({
   scores: {
@@ -20,6 +20,4 @@ defineProps({
   </ul>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
