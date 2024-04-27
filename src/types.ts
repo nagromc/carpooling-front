@@ -1,19 +1,9 @@
-export class Carpooler {
+export type Carpooler = {
   id: string
   displayName: string
-
-  constructor(id: string, displayName: string) {
-    this.id = id
-    this.displayName = displayName
-  }
 }
 
-export class Score {
+export type Score = {
   carpooler: Carpooler
   score: number
-
-  constructor(carpooler: Carpooler, score: number) {
-    this.carpooler = carpooler
-    this.score = score
-  }
 }

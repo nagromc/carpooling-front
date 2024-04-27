@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { Carpooler } from '@/types'
+import type { Carpooler } from '@/types'
 import CarpoolerList from '@/components/CarpoolerList.vue'
 import CarpoolerScores from '@/components/CarpoolerScores.vue'
 
-let alice = new Carpooler('alice', 'Alice')
-let bob = new Carpooler('bob', 'Bob')
-let charlie = new Carpooler('charlie', 'Charlie')
+let alice: Carpooler = { id: 'alice', displayName: 'Alice' }
+let bob: Carpooler = { id: 'bob', displayName: 'Bob' }
+let charlie: Carpooler = { id: 'charlie', displayName: 'Charlie' }
 
 let carpoolers = ref([alice, bob, charlie])
 
