@@ -1,0 +1,38 @@
+{
+  carpoolers: [
+    {
+      id: "alice",
+      name: "Alice"
+    },
+    {
+      id: "bob",
+      name: "Bob"
+    },
+    {
+      id: "charlie",
+      name: "Charlie"
+    },
+  ],
+  trips: [
+    {
+      date: "2015-10-21",
+      driver: "alice",
+      passengers: [
+        "bob",
+        "charlie"
+      ]
+    },
+    {
+      date: "2015-10-22",
+      driver: "bob",
+      passengers: [
+        "charlie"
+      ]
+    },
+  ],
+  credits: {
+    alice: 0.5,
+    bob: 0.33,
+    charlie: -0.25
+  }
+}
