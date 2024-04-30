@@ -34,5 +34,3 @@ onMounted(refreshData)
     </li>
   </ul>
 </template>
-
-<style scoped></style>

@@ -27,5 +27,3 @@ onMounted(refreshData)
     <li v-for="c in carpoolers" :key="c.id">{{ c.displayName }}</li>
   </ul>
 </template>
-
-<style scoped></style>

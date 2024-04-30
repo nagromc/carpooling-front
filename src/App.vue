@@ -1,5 +1,3 @@
-<script setup lang="ts"></script>
-
 <template>
   <h1>Carpooling app</h1>
 
@@ -18,5 +16,3 @@
     <RouterView />
   </main>
 </template>
-
-<style scoped></style>
