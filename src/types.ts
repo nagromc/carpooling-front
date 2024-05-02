@@ -1,9 +1,9 @@
-export type Carpooler = {
+export interface Carpooler {
   id: string
   displayName: string
 }
 
-export type Score = {
+export interface Score {
   carpooler: Carpooler
   score: number
 }
