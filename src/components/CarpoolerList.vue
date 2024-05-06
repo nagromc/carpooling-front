@@ -1,23 +1,14 @@
 <script setup lang="ts">
-import type { Carpooler } from '@/types'
 import { onMounted, ref } from 'vue'
+import { useCarpoolersStore } from '@/stores/carpoolers'
+import { storeToRefs } from 'pinia'
 
-const carpoolers = ref<Carpooler[]>()
+const store = useCarpoolersStore()
+const carpoolers = ref(storeToRefs(store).carpoolers)
 
-function refreshData() {
-  carpoolers.value = fetchData()
-
-  function fetchData(): Carpooler[] {
-    console.log('Fetching carpoolers…')
-    const alice: Carpooler = { id: 'alice', displayName: 'Alice' }
-    const bob: Carpooler = { id: 'bob', displayName: 'Bob' }
-    const charlie: Carpooler = { id: 'charlie', displayName: 'Charlie' }
-
-    return [alice, bob, charlie]
-  }
-}
-
-onMounted(refreshData)
+onMounted(() => {
+  store.refreshCarpoolers()
+})
 </script>
 
 <template>
