@@ -4,10 +4,10 @@
   <nav>
     <ul>
       <li>
-        <RouterLink to="/carpoolers">Carpooler list</RouterLink>
+        <RouterLink :to="{ name: 'carpoolerList' }">Carpooler list</RouterLink>
       </li>
       <li>
-        <RouterLink to="/scores">Scores</RouterLink>
+        <RouterLink :to="{ name: 'carpoolerScores' }">Scores</RouterLink>
       </li>
     </ul>
   </nav>

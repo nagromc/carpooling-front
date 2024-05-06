@@ -4,8 +4,8 @@ import CarpoolerList from '@/components/CarpoolerList.vue'
 
 const routes: RouteRecordRaw[] = [
   { path: '/', redirect: '/scores' },
-  { path: '/scores', component: CarpoolerScores },
-  { path: '/carpoolers', component: CarpoolerList }
+  { path: '/scores', component: CarpoolerScores, name: 'carpoolerScores' },
+  { path: '/carpoolers', component: CarpoolerList, name: 'carpoolerList' }
 ]
 
 export const router = createRouter({
