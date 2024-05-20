@@ -6,17 +6,16 @@ export const useCarpoolersStore = defineStore('carpoolers', {
     carpoolers: [] as Carpooler[]
   }),
   actions: {
-    refreshCarpoolers() {
-      this.carpoolers = fetchData()
+    async refreshCarpoolers() {
+      const response = await (await fetch('http://localhost:3000/carpoolers')).json()
+      this.carpoolers = response.map((dto: CarpoolerDto): Carpooler => {
+        return { id: dto.id, displayName: dto.name }
+      })
     }
   }
 })
 
-function fetchData(): Carpooler[] {
-  console.log('Fetching carpoolers…')
-  const alice: Carpooler = { id: 'alice', displayName: 'Alice' }
-  const bob: Carpooler = { id: 'bob', displayName: 'Bob' }
-  const charlie: Carpooler = { id: 'charlie', displayName: 'Charlie' }
-
-  return [alice, bob, charlie]
+interface CarpoolerDto {
+  id: string,
+  name: string
 }
