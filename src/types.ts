@@ -4,6 +4,6 @@ export interface Carpooler {
 }
 
 export interface Score {
-  carpooler: Carpooler
+  carpoolerId: string
   score: number
 }

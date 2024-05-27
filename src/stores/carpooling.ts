@@ -6,6 +6,11 @@ export const useCarpoolingStore = defineStore('carpooling', {
     carpoolers: [] as Carpooler[],
     scores: [] as Score[]
   }),
+  getters: {
+    getDisplayNameById: (state) => (id: string) => {
+      return state.carpoolers.find(c => c.id === id)?.displayName
+    }
+  },
   actions: {
     async refreshCarpoolers() {
       const response: CarpoolerDto[] = await (await fetch('http://localhost:3000/carpoolers')).json()
@@ -14,20 +19,10 @@ export const useCarpoolingStore = defineStore('carpooling', {
       })
     },
     async refreshScores() {
-      this.scores = fetchData()
-
-      function fetchData(): Score[] {
-        console.log('Fetching scores…')
-        const alice: Carpooler = { id: 'alice', displayName: 'Alice' }
-        const bob: Carpooler = { id: 'bob', displayName: 'Bob' }
-        const charlie: Carpooler = { id: 'charlie', displayName: 'Charlie' }
-
-        return [
-          { carpooler: alice, score: 0.3 },
-          { carpooler: bob, score: 0.5 },
-          { carpooler: charlie, score: -1 }
-        ]
-      }
+      const response: Record<string, number> = await (await fetch('http://localhost:3000/credits')).json()
+      this.scores = Object.entries(response).map(
+        ([carpooler, score]): Score => ({ carpoolerId: carpooler, score })
+      )
     }
   }
 })

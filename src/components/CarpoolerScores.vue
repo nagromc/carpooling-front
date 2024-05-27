@@ -7,6 +7,7 @@ const store = useCarpoolingStore()
 const scores = ref(storeToRefs(store).scores)
 
 onMounted(() => {
+  store.refreshCarpoolers()
   store.refreshScores()
 })
 </script>
@@ -15,8 +16,8 @@ onMounted(() => {
   <div>Scores</div>
 
   <ul>
-    <li v-for="s in scores" :key="s.carpooler.id">
-      <div>{{ s.carpooler.displayName }}</div>
+    <li v-for="s in scores" :key="s.carpoolerId">
+      <div>{{ store.getDisplayNameById(s.carpoolerId) }}</div>
       <div>{{ s.score }}</div>
     </li>
   </ul>
