@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import { storeToRefs } from 'pinia'
-import { useScoresStore } from '@/stores/scores'
+import { useCarpoolingStore } from '@/stores/carpooling'
 
-const store = useScoresStore()
+const store = useCarpoolingStore()
 const scores = ref(storeToRefs(store).scores)
 
 onMounted(() => {
