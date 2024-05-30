@@ -1,35 +1,23 @@
 <script setup lang="ts">
-import { type Carpooler, type Score } from '@/types'
 import { onMounted, ref } from 'vue'
+import { storeToRefs } from 'pinia'
+import { useCarpoolingStore } from '@/stores/carpooling'
 
-const scores = ref<Score[]>([])
+const store = useCarpoolingStore()
+const scores = ref(storeToRefs(store).scores)
 
-function refreshData() {
-  scores.value = fetchData()
-
-  function fetchData(): Score[] {
-    console.log('Fetching scores…')
-    const alice: Carpooler = { id: 'alice', displayName: 'Alice' }
-    const bob: Carpooler = { id: 'bob', displayName: 'Bob' }
-    const charlie: Carpooler = { id: 'charlie', displayName: 'Charlie' }
-
-    return [
-      { carpooler: alice, score: 0.3 },
-      { carpooler: bob, score: 0.5 },
-      { carpooler: charlie, score: -1 }
-    ]
-  }
-}
-
-onMounted(refreshData)
+onMounted(() => {
+  store.refreshCarpoolers()
+  store.refreshScores()
+})
 </script>
 
 <template>
   <div>Scores</div>
 
   <ul>
-    <li v-for="s in scores" :key="s.carpooler.id">
-      <div>{{ s.carpooler.displayName }}</div>
+    <li v-for="s in scores" :key="s.carpoolerId">
+      <div>{{ store.getDisplayNameById(s.carpoolerId) }}</div>
       <div>{{ s.score }}</div>
     </li>
   </ul>
